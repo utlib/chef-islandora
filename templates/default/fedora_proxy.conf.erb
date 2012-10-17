@@ -1,0 +1,27 @@
+<IfModule mod_proxy.c>
+
+ProxyRequests Off
+ProxyPreserveHost On
+<Proxy \*>
+    Order deny,allow
+    Allow from all
+</Proxy>
+
+ProxyPass /fedora/objects http://localhost:<%= node['tomcat']['port'] %>/fedora/objects
+ProxyPassReverse /fedora/objects http://localhost:<%= node['tomcat']['port'] %>/fedora/objects
+ProxyPass /fedora/images http://localhost:<%= node['tomcat']['port'] %>/fedora/images
+ProxyPassReverse /fedora/images http://localhost:<%= node['tomcat']['port'] %>/fedora/images
+ProxyPass /fedora/get http://localhost:<%= node['tomcat']['port'] %>/fedora/get
+ProxyPassReverse /fedora/get http://localhost:<%= node['tomcat']['port'] %>/fedora/get
+ProxyPass /fedora/services http://localhost:<%= node['tomcat']['port'] %>/fedora/services
+ProxyPassReverse /fedora/services http://localhost:<%= node['tomcat']['port'] %>/fedora/services
+ProxyPass /fedora/describe http://localhost:<%= node['tomcat']['port'] %>/fedora/describe
+ProxyPassReverse /fedora/describe http://localhost:<%= node['tomcat']['port'] %>/fedora/describe
+ProxyPass /iiv http://localhost:<%= node['tomcat']['port'] %>/iiv
+ProxyPassReverse /iiv http://localhost:<%= node['tomcat']['port'] %>/iiv
+ProxyPass /fedora/risearch http://localhost:<%= node['tomcat']['port'] %>/fedora/risearch
+ProxyPassReverse /fedora/risearch http://localhost:<%= node['tomcat']['port'] %>/fedora/risearch
+ProxyPass /adore-djatoka http://localhost:<%= node['tomcat']['port'] %>/adore-djatoka
+ProxyPassReverse /adore-djatoka http://localhost:<%= node['tomcat']['port'] %>/adore-djatoka
+
+</IfModule>
